@@ -130,23 +130,17 @@ a {
   flex-direction: row;
 } 
 
-/* HEADER / NAVIGATION */
-
-
-body > .detail-top-bottom:first-of-type {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 9999;
-
+.hidden {
+  display: none;
 }
 
+.block {
+  display: block;
+}
+
+/* HEADER / NAVIGATION */
+
 header {
-  position: fixed;
-  top: 24px;
-  left: 0;
-  z-index: 9999;
   width: 100%;
   height: 80px;
   padding: 0 20px;
@@ -242,10 +236,6 @@ nav ul li a.active::before {
 
 /* MAIN */
 
-main {
-  position: relative;
-  top: 24px;
-}
 
 /* HERO SECTION */
 
@@ -262,7 +252,7 @@ main {
 }
 
 .content-left {
-  grid-column: 1 / span 8;
+  width: 60%;
 }
 
 .hero h1.headline {
@@ -290,17 +280,18 @@ main {
 }
 
 .hero .content-right {
-  grid-column: 10 / span 12;
+  width: 40%;
 }
 
 .hero .content-right img {
   position: absolute;
-  right: -50px;
+  z-index: 99;
+  right: -50px; 
   top: -200px;
 }
 
 .metrics {
-  padding: 32px 0 48px 0;
+  padding: 32px 20px 48px 20px;
   background-color: #F5F7FD;
 }
 
@@ -1005,6 +996,10 @@ footer .container1 > div {
   font-size: 20px;
 }
 
+footer {
+  padding: 0 20px;
+}
+
 footer p.address {
   font-size: var(--desktop-font-body16);
   line-height: 24px;
@@ -1019,4 +1014,205 @@ footer div.copyright {
 footer div.copyright a {
   color: #fff;
   text-decoration: underline;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1030px) {
+  .desktop-nav, .cta-header {
+    display: none !important;
+  }
+
+  .mobile-nav {
+    display: block !important;
+  }
+
+  .mobile-nav button {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    color: var(--brand3-dark1);
+    border: none;
+    background-color: #F5F7FD;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .hero .content-right img {
+    right: -30px;
+    width: 700px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  
+}
+
+@media screen and (min-width: 384px) {
+  .hero {
+    height: auto;
+    padding-bottom: 0px;
+  }
+
+  .hero .content-left, 
+  .hero .content-right {
+    width: 100%;
+    height: auto;
+    text-align: center;
+  }
+
+  .hero .content-left a.cta {
+    margin: 36px auto 0 auto;
+  }
+
+  .hero .container1 {
+    flex-direction: column !important;
+    gap: 32px
+  } 
+
+  .hero .content-right img {
+    position: initial;
+    right: 80px;
+    top: 50px;
+  }
+
+  .content-left .headline, h2 {
+    font-size: var(--desktop-font-h2) !important;
+    line-height: var(--desktop-font-lh2) !important;
+  }
+
+  .hero .content-left a.cta {
+    margin: 36px auto 0 auto;
+  }
+
+  .hero .container1 {
+    flex-direction: column !important;
+    gap: 32px
+  } 
+
+  .hero .content-right img {
+    width: 500px;
+    position: relative;
+    right: 125px;
+  }
+
+  .metrics {
+    margin-top: 20px;
+  }
+
+  .metrics .container1 {
+    flex-wrap: wrap !important;
+  }
+
+  .solutions .container1 div:nth-child(2),
+  .public .container1 div:nth-child(2),
+  .about-fleets,
+  .about .container1,
+  .testimonial-wrapper,
+  .banner .container1,
+  .form .container2,
+  .big-section .sell-vehicles,
+  .why-buy,
+  .motives-to-buy-wrapper,
+  .next-step  {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+
+  .solutions .solution-wrapper {
+    grid-column: span 4 !important;
+  }
+
+  .img-about img {
+    width: 100%;
+  }
+
+  .img-about {
+    grid-column: span 4 !important;
+
+  }
+
+  .info-about {
+    grid-column: span 4 !important;
+  }
+
+  .public-container {
+    flex-direction: column;
+  }
+
+  .public-image {
+    display: none;
+  }
+
+  .car-lines {
+    width: 100%;
+  }
+
+  .banner {
+    width: 100%;
+    height: auto !important;
+  }
+
+  .banner-img {
+    display: none;
+  }
+
+  .banner-content {
+    padding: 0 20px;
+    grid-column: span 4 !important;
+    text-align: center;
+  }
+
+  .banner-content a.cta {
+    margin: 32px auto 0 auto;
+  }
+
+  .form-img {
+    display: none;
+  }
+
+  .form .type-person {
+    flex-direction: column;
+    align-items: start;
+    gap: 16px !important;
+  }
+
+  .form .form-fields div {
+    flex-direction: column !important;
+  }
+
+  .section-img {
+    display: none;
+  }
+
+  .sell-vehicles h2 {
+    font-size: var(--desktop-font-h3) !important;
+    line-height: var(--desktop-font-lh3) !important;
+  }
+
+  .motive-to-buy, .next-step-content, .next-step-img {
+    grid-column: span 4 !important;
+  }
+
+  .next-step-img img {
+    width: 100%;
+  }
+
+  footer .container1 > div {
+    flex-direction: column !important;
+    align-items: start;
+    justify-content: start;
+    gap: 20px;
+  }
+
+  .social-media {
+    flex-direction: row !important;
+  }
+
+  .footer-nav {
+    flex-direction: column !important;
+    align-items: start;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
 }

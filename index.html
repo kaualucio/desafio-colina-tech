@@ -26,7 +26,61 @@
        <div class="logo">
         <img src="public/assets/images/logo.svg" />
        </div>
-       <nav>
+       <div class="mobile-nav hidden">
+          <button>
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <nav class="hidden">
+            <ul class=" flex items-center ">
+              <li>
+                <a href="#home" class="active">Home</a>
+              </li>
+              <li>
+                <a href="#sobre">Sobre</a>
+              </li>
+              <li>
+                <a href="#" class="drop flex items-center space-between">
+                  Para empresas e Órgãos Públicos
+                  <i class="fa-solid fa-chevron-down"></i>
+                </a>
+                <ul class="menu-dropdown">
+                  <li>
+                    <a href="#">
+                      Locação
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">Gestão</a>
+                  </li>
+                  <li>
+                    <a href="#">Manutenção de Frotas</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" class="drop flex items-center space-between">
+                  Para Você
+                  <i class="fa-solid fa-chevron-down"></i>
+                </a>
+                <ul class="menu-dropdown">
+                  <li>
+                    <a href="#">3A Seminovos</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">Calculadora</a>
+              </li>
+              <li>
+                <a href="#contato">Fale conosco</a>
+              </li>
+            </ul>       
+            <a href="" class="cta-header">
+            Entrar em contato
+            </a>
+           </nav>
+       </div>
+       <nav class="desktop-nav">
         <ul class=" flex items-center ">
           <li>
             <a href="#home" class="active">Home</a>
@@ -79,9 +133,9 @@
   </header>
   <main>
     <section id="home" class="hero flex all-center">
-      <div class="container1 grid cols-12 grid-gap">
+      <div class="container1 flex items-center space-between">
         <div class="content-left">
-          <h1 class="headline">Foque em seu negócio enquanto a 3A locadora realiza sua gestão de frotas</h1>
+          <h1 class="headline">Foque em seu negócio<br/> enquanto a 3A locadora<br/> realiza sua gestão de frotas</h1>
           <p>Terceirize a gestão de frotas para<br/> empresas privadas e órgãos públicos.</p>
           <a href="#" class="cta flex all-center">
             <img src="public/assets/icons/notification-message.svg" alt="ícone de notificação de mensagem">
@@ -319,7 +373,8 @@
           <span>*Opcionais adaptáveis a critérios, exigências e necessidades do cliente.</span>
         </div>
         <div class="flex flex-col all-center">
-          <img 
+          <img
+            class="car-lines" 
             src="public/assets/images/car-lines.png"
           />
 
