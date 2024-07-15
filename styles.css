@@ -53,6 +53,8 @@
 
 html, body {
   overflow-x: hidden;
+  scroll-behavior: smooth;
+  position: relative;
 }
 
 ul {
@@ -101,6 +103,7 @@ a {
   color: #CECDD9;
   font-size: 24px;
   overflow: hidden;
+  background-color: #fff;
 }
 
 .grid {
@@ -130,14 +133,35 @@ a {
 /* HEADER / NAVIGATION */
 
 
+body > .detail-top-bottom:first-of-type {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+
+}
+
 header {
+  position: fixed;
+  top: 24px;
+  left: 0;
+  z-index: 9999;
   width: 100%;
   height: 80px;
   padding: 0 20px;
   background-color: #fff;
 }
+
 nav ul {
   gap: 32px;
+  width: 100%;
+}
+
+nav ul li {
+  position: relative;
+  transition-property: color;
+  transition-timing-function: ease;
 }
 
 ul li a {
@@ -146,6 +170,11 @@ ul li a {
 }
 
 ul li:hover a {
+  transition-duration: 0.8ms;
+}
+
+ul li:hover a,
+ul li ul.menu-dropdown li:hover a {
   font-size: var(--desktop-font-body14);
   color: var(--brand3-dark1);
 }
@@ -155,12 +184,12 @@ ul li ul.menu-dropdown li {
 }
 
 ul li ul.menu-dropdown {
-  width: 100%;
   position: absolute;
   z-index: 999;
   display: none;
   padding: 2px 14px;
   background-color: #fff;
+  width: max-content;
 }
 
 ul li ul.menu-dropdown li:not(li:last-of-type) {
@@ -171,15 +200,18 @@ ul li ul.menu-dropdown li:not(li:last-of-type) {
 
 ul li ul.menu-dropdown li a {
   display: inline-block;
+  width: max-content;
   padding: 14px 0;
   color: #56546B;
 }
 
 ul li:hover ul.menu-dropdown {
   display: block;
+  width: 100%;
 }
 
 a.drop {
+  display: inline-block;
   gap: 8px
 }
 
@@ -193,7 +225,27 @@ a.cta-header {
   border-radius: 20px;
 }
 
+a.active {
+  color: var(--brand3-dark1);
+}
+
+ul li:hover > a::before,
+nav ul li a.active::before {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: var(--brand3-dark1);
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
 /* MAIN */
+
+main {
+  position: relative;
+  top: 24px;
+}
 
 /* HERO SECTION */
 

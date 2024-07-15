@@ -29,10 +29,10 @@
        <nav>
         <ul class=" flex items-center ">
           <li>
-            <a href="#">Home</a>
+            <a href="#home" class="active">Home</a>
           </li>
           <li>
-            <a href="#">Sobre</a>
+            <a href="#sobre">Sobre</a>
           </li>
           <li>
             <a href="#" class="drop flex items-center space-between">
@@ -68,7 +68,7 @@
             <a href="#">Calculadora</a>
           </li>
           <li>
-            <a href="#">Fale conosco</a>
+            <a href="#contato">Fale conosco</a>
           </li>
         </ul>       
        </nav>
@@ -78,7 +78,7 @@
     </div>
   </header>
   <main>
-    <section class="hero flex all-center">
+    <section id="home" class="hero flex all-center">
       <div class="container1 grid cols-12 grid-gap">
         <div class="content-left">
           <h1 class="headline">Foque em seu negócio enquanto a 3A locadora realiza sua gestão de frotas</h1>
@@ -164,7 +164,7 @@
       </div>
     </section>
 
-    <section class="about">
+    <section id="sobre" class="about">
       <div class="container1 grid cols-12">
         <div class="img-about">
           <img src="public/assets/images/3a-building.png" alt="Frente do escritório da 3A Locadora"/>
@@ -471,7 +471,7 @@
       </div>
     </section>
 
-    <section class="form">
+    <section id="contato" class="form">
       <div class="container2 grid cols-12 all-center">
         <div class="form-img">
           <img src="public/assets/images/form-img.png" />
@@ -630,5 +630,7 @@
   <div class="detail-top-bottom flex all-center">
     <i class="fa-brands fa-whatsapp"></i>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
