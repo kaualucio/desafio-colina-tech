@@ -71,7 +71,7 @@ a {
 }
 
 .flex  {
-  display: flex;
+  display: flex !important;
 }
 
 .all-center {
@@ -115,7 +115,7 @@ a {
 }
 
 .cols-12 {
-  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
 }
 
 .relative {
@@ -167,8 +167,8 @@ ul li:hover a {
   transition-duration: 0.8ms;
 }
 
-ul li:hover a,
-ul li ul.menu-dropdown li:hover a {
+.desktop-nav  li:hover a,
+.desktop-nav ul li ul.menu-dropdown li:hover a {
   font-size: var(--desktop-font-body14);
   color: var(--brand3-dark1);
 }
@@ -219,12 +219,12 @@ a.cta-header {
   border-radius: 20px;
 }
 
-a.active {
+.desktop-nav a.active {
   color: var(--brand3-dark1);
 }
 
-ul li:hover > a::before,
-nav ul li a.active::before {
+.desktop-nav  li:hover > a::before,
+.desktop-nav nav ul li a.active::before {
   content: '';
   width: 100%;
   height: 1px;
@@ -1018,13 +1018,39 @@ footer div.copyright a {
 
 /* MEDIA QUERIES */
 
-@media screen and (max-width: 1030px) {
+@media screen and (max-width: 768px) {
   .desktop-nav, .cta-header {
     display: none !important;
   }
 
   .mobile-nav {
     display: block !important;
+  }
+
+  .mobile-nav nav {
+    display: none;
+    position: absolute;
+    width: 100%;
+    background: #fff;
+    top: 80px;
+    left: 0;
+    flex-direction: column;
+  }
+
+  .mobile-nav nav ul {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .mobile-nav nav ul li {
+    padding: 12px 16px;
+    display: block;
+    width: 100%;
+  }
+
+  .mobile-nav nav ul li a {
+    display: block;
+    width: 100%;
   }
 
   .mobile-nav button {
@@ -1038,17 +1064,132 @@ footer div.copyright a {
     cursor: pointer;
   }
 
-  .hero .content-right img {
-    right: -30px;
-    width: 700px;
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .hero {
+    height: auto;
   }
-}
 
-@media screen and (min-width: 768px) {
+  .hero .container1 {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  } 
+
+  .hero .container1 .content-left, 
+  .hero .container1 .content-right {
+    width: 100% !important;
+  } 
+
+  .hero .container1 .content-left {
+    text-align: center;
+  }
+
+  .hero .container1 .content-left a.cta {
+    margin: 32px  auto 0 auto;
+  }
+
+
+  .hero .content-right img {
+    width: auto;
+    position: relative;
+    right: 120px;
+    top: 30px;
+  }
+
+  .solutions .container1 div:nth-child(2),
+  .fleets .about-fleets,
+  .testimonials .testimonial-wrapper,
+  .big-section .motives-to-buy-wrapper {
+    grid-template-columns: repeat(8, minmax(0, 1fr)) !important;
+  }
   
+  .solutions .solution-wrapper,
+  .fleets .fleet-container,
+  .big-section .motives-to-buy-wrapper {
+    grid-column: span 4 !important;
+  } 
+
+  .about .container1,
+  .public .container1 > div:nth-child(2),
+  .banner .banner-wrapper,
+  .sell-vehicles,
+  .next-step  {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about .container1 .img-about {
+    text-align: center;
+  }
+
+  .public .container1 .public-image {
+    width: 100%;
+  }
+
+  .banner {
+    height: auto !important;
+    padding: 40px 20px;
+  }
+
+  .banner .banner-img {
+    display: none;
+  }
+
+  .banner .banner-wrapper {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .banner .banner-wrapper .banner-content {
+    width: 70%;
+    text-align: center;
+  } 
+
+  .banner .banner-wrapper .banner-content a.cta {
+    margin: 32px auto 0 auto;
+  }
+
+  .form .container2 {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .form .container2 .form-img {
+    width: 40%;
+  }
+
+  .form .container2 .form-wrapper {
+    width: 60%;
+  }
+
+  .sell-vehicles .section-img {
+    display: block;
+  }
+
+  .sell-vehicles .section-img img {
+    width: auto;
+    position: relative;
+    left: -20px;
+  }
+
+  .big-section .motive-to-buy {
+    grid-column: span 4 !important; 
+  } 
 }
 
-@media screen and (min-width: 384px) {
+@media screen and (min-width: 384px) and (max-width: 767px) {
+  .desktop-nav, .cta-header {
+    display: none !important;
+  }
+
+  .mobile-nav {
+    display: block !important;
+  }
+
   .hero {
     height: auto;
     padding-bottom: 0px;
@@ -1066,19 +1207,20 @@ footer div.copyright a {
   }
 
   .hero .container1 {
-    flex-direction: column !important;
+    flex-direction: column;
     gap: 32px
   } 
 
   .hero .content-right img {
-    position: initial;
-    right: 80px;
-    top: 50px;
+    /* position: relative; */
+    width: 480px !important;
+    right: 110px !important;
+    top: 20px;
   }
 
   .content-left .headline, h2 {
-    font-size: var(--desktop-font-h2) !important;
-    line-height: var(--desktop-font-lh2) !important;
+    font-size: var(--desktop-font-h2);
+    line-height: var(--desktop-font-lh2);
   }
 
   .hero .content-left a.cta {
@@ -1086,18 +1228,18 @@ footer div.copyright a {
   }
 
   .hero .container1 {
-    flex-direction: column !important;
+    flex-direction: column;
     gap: 32px
   } 
 
   .hero .content-right img {
-    width: 500px;
+    width: 700px;
     position: relative;
-    right: 125px;
+    right: 50px;
   }
 
   .metrics {
-    margin-top: 20px;
+    padding-top: 20px;
   }
 
   .metrics .container1 {
@@ -1105,34 +1247,24 @@ footer div.copyright a {
   }
 
   .solutions .container1 div:nth-child(2),
-  .public .container1 div:nth-child(2),
-  .about-fleets,
   .about .container1,
-  .testimonial-wrapper,
+  .public .container1 div:nth-child(2),
+  .testimonials .testimonial-wrapper,
   .banner .container1,
   .form .container2,
   .big-section .sell-vehicles,
-  .why-buy,
-  .motives-to-buy-wrapper,
-  .next-step  {
-    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  .big-section .next-step {
+    display: flex;
+    flex-direction: column;
   }
 
-  .solutions .solution-wrapper {
-    grid-column: span 4 !important;
+  .solution-wrapper {
+    justify-content: end;
   }
+
 
   .img-about img {
     width: 100%;
-  }
-
-  .img-about {
-    grid-column: span 4 !important;
-
-  }
-
-  .info-about {
-    grid-column: span 4 !important;
   }
 
   .public-container {
@@ -1140,7 +1272,16 @@ footer div.copyright a {
   }
 
   .public-image {
-    display: none;
+    display: none !important;
+  }
+
+  .fleets .about-fleets,
+  .big-section .motives-to-buy-wrapper {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;;
+  }
+
+  .fleets .about-fleets .fleet-container {
+    grid-column: span 3;
   }
 
   .car-lines {
@@ -1150,6 +1291,10 @@ footer div.copyright a {
   .banner {
     width: 100%;
     height: auto !important;
+  }
+
+  .banner .container1 {
+    justify-content: center;
   }
 
   .banner-img {
@@ -1177,7 +1322,7 @@ footer div.copyright a {
   }
 
   .form .form-fields div {
-    flex-direction: column !important;
+    flex-direction: column;
   }
 
   .section-img {
